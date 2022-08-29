@@ -1,0 +1,343 @@
+/* Made with love by Mahsin Ahmed test*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background: url("../img/prime_university.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+z-index: 1;
+}
+
+.welcome_msg{
+    background-color: rgb(63, 10, 150);        
+}
+.marquee {
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    color: whitesmoke;
+}
+
+.marquee h3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -moz-animation: scroll-left 2s linear infinite;
+    -webkit-animation: scroll-left 2s linear infinite;
+    animation: scroll-left 20s linear infinite;
+}
+
+@-moz-keyframes scroll-left {
+    0% {
+        -moz-transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes scroll-left {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-left {
+    0% {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+    100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+    
+.hm_btn{
+    margin-top: 20px;
+}
+
+.banner{
+    color: white;
+    font-size: 30px;
+    text-align: center; 
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.banner img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+.loading-img {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 15%;
+    text-align: left;
+    margin-left: 450px;
+    display: none;
+    z-index: 1;
+}
+
+.loading-img img {    
+    margin-top: 11%;
+    margin-left: 2%;
+    width: 120px;
+    height: auto;
+}
+.container{
+height: 100%;
+align-content: center;
+}
+
+
+.card{
+height: 90%;
+margin-top: auto;
+margin-bottom: auto;
+width: 90%;
+background-color:  #2a2771 !important;
+}
+
+.card-body{
+    height: 100%;
+}
+
+.card-header h4{
+    text-align: center;
+    color:white;
+}
+
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.heading h4,h3{
+margin: auto;
+color: white;
+font-size: 20px;
+text-align: center;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+font-size: 14px;
+}
+
+.links a{
+margin-left: 4px;
+font-size: 14px;
+}
+
+.searchr{
+    margin: 10px;
+    padding-left: 5px;
+}
+.searchr :hover, .searcha :hover{
+    background-color: rgba(138, 207, 150, 0.932);
+}
+.searcha{
+    margin: 10px;
+}
+.pAddress{
+    font-size: 12px;
+}
+.heading_result{
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    color: white;
+    padding: 2px;
+}
+.result_table{
+    border: 1px solid white;
+}
+
+.std_image{
+    vertical-align: auto;
+    border: 1px solid white;
+    width: 140px;
+    height: 150px;
+}
+.lastStd{
+    color:white;
+}
+
+.rs_table{
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    border-collapse: collapse
+}
+.f_col{
+    width: 30%;
+    padding-left:10px ;
+    font-weight: bolder;
+}
+.s_col{
+    padding-left: 10px;
+}
+.s_col input{
+    
+    width: 80%;
+}
+table {
+    background: cornsilk;
+    font-size: 14px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .print_button{
+      font-size: 14px;
+      float: right;
+      
+  }
+
+  .loginform{
+    width: 300px;
+    margin:auto;
+    margin-top: 7%;
+}
+
+  .pp{
+      float: right;
+      padding-right: 5px;
+  }
+.login_btn{
+    width: 100%;
+}
+ .card-header-result-entry{
+    margin-top: 10px;    
+    margin-bottom: 10px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+
+ } 
+
+ .head{
+    float: right;
+    padding-right: 5px;
+ }
+ .card-header span{
+     margin-left: 10px;
+     padding:5px 10px;
+     background: white;
+     border-radius: 3px;
+     position: absolute;
+     left: 0;
+     bottom: 0;
+    }
+
+.list-group-item{
+    padding:0px;
+    padding-left:3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.subBtn{
+    margin:10px;
+    margin-right: 0;
+    float: right;
+}
+
+.check-input{
+    padding-top: 50px;
+    margin-bottom: 2px;
+    
+}
+.check-button{
+    margin-bottom: 2px;
+    
+}
+.check-input input{
+    margin-top: 2px;
+font-size: 13px;
+font-weight: bolder;
+color: blue;
+background: white;
+}
+
+.main-menu{
+    margin-top: 5px;
+}
+
+.important{
+    color: red;
+}
